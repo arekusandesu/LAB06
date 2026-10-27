@@ -42,7 +42,7 @@ namespace LAB06
                 throw new ArgumentException($"Массив не должен быть null.");
             }
 
-            if (data.Length != size * size)
+            if (data.GetLength(0) != size || data.GetLength(1) != size)
             {
                 throw new ArgumentException($"Массив должен иметь размер {size} на {size}.");
             }
@@ -69,7 +69,7 @@ namespace LAB06
 
             for (int i = 0; i < a.Size; i++)
             {
-                for (int j =0; j < a.Size; j++)
+                for (int j = 0; j < a.Size; j++)
                 {
                     newMatrix[i, j] = a.Data[i, j] - b.Data[i, j];
                 }
