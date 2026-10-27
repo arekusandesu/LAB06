@@ -115,6 +115,39 @@ namespace LAB06
                 throw new ArgumentException($"Размерность массивов должна быть одинаковой.");
             }
         }
+        public static bool operator ==(Matrix a, Matrix b)
+        {
+            SameMatrixSize(a, b);
+            for (int i = 0; i < a.Size; i++)
+            {
+                for (int j = 0; j < a.Size; j++)
+                {
+                    if (a.Data[i, j] != b.Data[i, j])
+                    {
+                        return false;
+                    }
+                        ;
+                }
+            }
+            return true;
+        }
+        public static bool operator !=(Matrix a, Matrix b)
+        {
+            SameMatrixSize(a, b);
+            for (int i = 0; i < a.Size; i++)
+            {
+                for (int j = 0; j < a.Size; j++)
+                {
+                    if (a.Data[i, j] == b.Data[i, j])
+                    {
+                        return false;
+                    }
+                    ;
+                }
+            }
+            return true;
+        }
+
         public override string ToString()
         {
             string result = "";

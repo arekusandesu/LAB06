@@ -13,9 +13,17 @@ double[,] bData =
                 { 6, 5, 4 },
                 { 3, 2, 1 }
     };
+double[,] cData =
+    {
+                { 9, 8, 7 },
+                { 6, 5, 4 },
+                { 3, 2, 1 }
+    };
 
 Matrix A = new Matrix(3, aData);
 Matrix B = new Matrix(3, bData);
+Matrix C = new Matrix(3, cData);
+
 
 Console.WriteLine($"Матрица A: \n{A}");
 Console.WriteLine();
@@ -33,6 +41,9 @@ Console.WriteLine($"A * B: \n{A * B}");
 Console.WriteLine();
 
 Console.WriteLine($"A / 2: \n{A / 2}");
+Console.WriteLine();
+
+Console.WriteLine($"B = C: {C == B}");
 Console.WriteLine();
 
 try
@@ -60,7 +71,7 @@ catch (ArgumentException ex)
 
 try
 {
-    Matrix C = A / 0;
+    Matrix D = A / 0;
 }
 catch (DivideByZeroException ex)
 {
@@ -75,3 +86,4 @@ catch (ArgumentException ex)
 {
     Console.WriteLine(ex.Message);
 }
+
